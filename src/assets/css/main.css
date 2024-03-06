@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fantasy", sans-serif;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+    background: #e0fcf1;
+}
+
+
+.btn-red {
+    background: #e04040 !important;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+
+.wrapper {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    min-height: 100%;;
+}
+
+.header {
+    width: 250px;
+    min-height: 100%;
+    height: 100%;
+    background: #14d98e;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    padding: 20px;
+    color: #fff;
+}
+
+.header__h1-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+
+.header-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-menu__item {
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    transition: .3s;
+}
+
+.header-menu__item--active,
+.header-menu__item:hover,
+.search-form__submit:hover {
+    background: #beffd7;
+    color: #393939;
+}
+
+
+.main {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    margin-left: 250px;
+    padding: 50px;
+}
+
+
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.search-form__input{
+    padding: 15px;
+    border: none;
+    outline: none;
+    width: 500px;
+}
+
+.search-form__submit {
+    border: none;
+    padding: 15px;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+.search-form__founded,
+.myMovies-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 40px;
+    margin-top: 50px;
+}
+
+
+.movie {
+    text-align: center;
+}
+
+
+.movie__poster {
+    width: 150px;
+}
+
+.movie__h3-title {
+    font-size: 16px;
+    color: #393939;
+    margin-top: 5px;
+}
+
+.movie__p-desc {
+    margin: 10px 0;
+    height: 40px;
+    overflow: hidden;
+    text-overflow: " [..]";
+}
+
+.movie__button {
+    border: none;
+    background: #1afa43;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.movie__button:hover {
+    background: #1bd33d;
+}
