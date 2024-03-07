@@ -6,6 +6,7 @@ import axios from 'axios'
 export const useMovieStore = defineStore('MovieStore', () => {
     const movieList = ref([]);
     const favoriteList = ref([]);
+    const searchList = ref([]);
     const activeTab = ref(2);
     const loader = ref(false);
 
@@ -44,6 +45,7 @@ export const useMovieStore = defineStore('MovieStore', () => {
             return true;
         }
     }
+
 
   return { activeTab, setTab, loader, movieList, favoriteList, appendMovie, removeMovie, getMovies, isMovieOnList}
 })

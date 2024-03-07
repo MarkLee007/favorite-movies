@@ -1,13 +1,26 @@
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, computed } from 'vue';
   import { useMovieStore } from './stores/movies';
   import Movie from '@/components/Movie.vue'
   import axios from 'axios';
 
   const movieStore = useMovieStore();
 
-
   onMounted(movieStore.getMovies());
+
+  let search = ref('');
+
+  let searchList = ref([]);
+
+
+  const searchMovies = computed(()=> {
+    let movies = movieStore.movieList;
+    if(search.value) {
+      movies = movies.filter((el)=> el.title.toLowerCase().indexOf(search.value.toLocaleLowerCase()) !== -1)
+    }
+    return movies;
+  });
+
   
 
 </script>
@@ -37,14 +50,10 @@
         </div>    
       </div>
       <div v-if="movieStore.activeTab == 2" class="search-form-container">
-        <form class="search-form">
-          <input type="text" placeholder="Search a movie.." class="search-form__input">
-          <button type="submit" class="search-form__submit"
-          @click="movieStore.searchMovies">Search</button>
-        </form>
+        <input type="text" placeholder="Search a movie.." class="search-form__input" v-model="search">
         <img v-if="movieStore.loader" src="/src/assets/img/loader.gif" alt="" class="loader">
         <div v-else class="search-form__founded">
-          <Movie v-for="movie of movieStore.movieList" :key="movie.id" :movie="movie"/>
+          <Movie v-for="movie of searchMovies" :key="movie.id" :movie="movie"/>
         </div>
       </div>
     </main>
